@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7747bdf78fa6141a2f81d16ff91e5f, type: 3}
+  m_Name: Turret
+  m_EditorClassIdentifier: 
+  nameString: Turret
+  buildResources:
+    resource1: 15
+    resource2: 20
+  prefab: {fileID: 1406036821435700011, guid: 6c7d722834b02c243974ec1fa1c890a0, type: 3}
+  visual: {fileID: 5737252889319204134, guid: 10eb1c2d3d5d2664c9cbcae8989524f6, type: 3}
+  buildMenuImage: {fileID: 21300000, guid: 8aae6fd4631f1604fb7fe3758683af3b, type: 3}
+  description: 
+  width: 4
+  height: 2
+  isStackable: 0
+  isNeedControl: 0
+  isUnderground: 0
+  buildVariations: []
