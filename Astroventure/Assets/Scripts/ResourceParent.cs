@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-public class ResourceParent : MonoBehaviour, IDamageable
+public class ResourceParent : MonoBehaviour, IEnemy
 {
-    float health = 15;
+    float health = 75;
     float currentHealth;
 
     [SerializeField] Image healthBarWhite, healthBarRed;
@@ -43,7 +43,6 @@ public class ResourceParent : MonoBehaviour, IDamageable
         currentHealth = health;
         defaultMaterials = meshRenderer.materials;
         whiteMaterials = new Material[meshRenderer.materials.Length];
-        collactablePrefab.transform.parent = null;
         for (int i = 0; i < whiteMaterials.Length; i++)
         {
             whiteMaterials[i] = whiteMaterial;
@@ -64,14 +63,15 @@ public class ResourceParent : MonoBehaviour, IDamageable
                 transform.DORotateQuaternion(Quaternion.Euler(0f, 0f, -90f), 0.5f).OnComplete(() =>
             {
                 
-                collactablePrefab.SetActive(true);
+                // collactablePrefab.SetActive(true);
                 Destroy(gameObject);
             });
 
                 break;
             case DieType.Scale:
                
-                collactablePrefab.SetActive(true);
+                // collactablePrefab.SetActive(true);
+                
                 transform.DOScale(Vector3.zero, 0.25f).OnComplete(() =>
             {
 
@@ -88,18 +88,18 @@ public class ResourceParent : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        canvas.SetActive(true);
+        //  canvas.SetActive(true);
 
         currentHealth -= damage;
 
         transform.DOShakePosition(0.25f, 0.5f, 10, 90f, false, true);
 
-        DOTween.To(() => _fillAmount, x => _fillAmount = x, currentHealth / health, 1.25f).OnUpdate(() =>
-        {
-            healthBarWhite.fillAmount = _fillAmount;
-        });
+        // DOTween.To(() => _fillAmount, x => _fillAmount = x, currentHealth / health, 1.25f).OnUpdate(() =>
+        // {
+        //     healthBarWhite.fillAmount = _fillAmount;
+        // });
 
-        healthBarRed.fillAmount = currentHealth / health;
+        // healthBarRed.fillAmount = currentHealth / health;
 
         StartCoroutine(ChangeMaterial());
 

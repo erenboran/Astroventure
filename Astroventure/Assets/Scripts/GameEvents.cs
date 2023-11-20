@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,35 +14,47 @@ public class GameEvents : MonoBehaviour
     public delegate void ObjectPlacedDelegate(GridObject objectTypeSO, PlacedObjectTypeSO placedObjectTypeSO);
     public delegate void ResourceChangedDelegate(Enums.ResourceTypes resourceType, int count);
 
+    public delegate void OnEnemySpawnWaveDelegate(int timer);
+
     public delegate void OnNewBuildingSelectedDelegate(PlacedObjectTypeSO objectTypeSO);
 
     public delegate bool OnResourceControlDelegate(BuildResources buildResources);
 
     public delegate void OnBuildMenuOpenedDelegate(bool isOpen);
 
-    public delegate void OnToolTipActivatedDelegate(PlacedObjectTypeSO objectTypeSO,bool isActive);
+    public delegate void OnToolTipActivatedDelegate(PlacedObjectTypeSO objectTypeSO, bool isActive);
+
+     public delegate void OnToolTipActivatedForTypesDelegate(String type, bool isActive);
 
     public delegate void OnResourceUsedDelegate(BuildResources buildResources);
 
-        public delegate void OnOutOfResourcesDelegate();
+    public delegate void OnWarningMessageDelegate(string message);
 
-
+    public delegate void OnAllBuldingCanBuildDelegate();
     public delegate void OnBuildMenuClosedDelegate();
+
+    public delegate bool OnMinerBuildControlDelegate();
 
     // public delegate void ControlBuildings();
 
 
     // Delegate Instance
+
+    public OnToolTipActivatedForTypesDelegate OnToolTipActivatedForTypes;
+    public OnMinerBuildControlDelegate OnMinerBuildControl;
     public GridSelectedDelagate OnGridSelected;
+
+    public OnAllBuldingCanBuildDelegate OnAllBuldingCanBuild;
+    public OnEnemySpawnWaveDelegate OnEnemySpawnWave;
 
     public OnNewBuildingSelectedDelegate OnNewBuildingSelected;
 
     public OnResourceUsedDelegate OnResourceUsed;
 
-    public OnOutOfResourcesDelegate OnOutOfResources;
+    public OnWarningMessageDelegate OnWarningMessage;
 
     public OnToolTipActivatedDelegate OnToolTipActivated;
-    
+
     public OnResourceControlDelegate OnResourceControl;
     public OnBuildMenuOpenedDelegate OnBuildMenuOpened;
     public PathFoundDelagate OnPathFound;
@@ -61,13 +74,7 @@ public class GameEvents : MonoBehaviour
         Instance = this;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            OnResourceChanged?.Invoke(Enums.ResourceTypes.Iron, 1);
-        }
-    }
+   
 
 
 

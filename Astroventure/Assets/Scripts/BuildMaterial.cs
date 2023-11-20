@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BuildMaterial : MonoBehaviour
 {
-   public MeshRenderer meshRenderer;
+   public MeshRenderer[] meshRenderers;
 }

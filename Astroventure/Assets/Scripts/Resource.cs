@@ -7,7 +7,7 @@ public class Resource
 {
     public string name;
     public int count;
-    public Enums.ResourceTypes resourceType = Enums.ResourceTypes.Iron;
+    public Enums.ResourceTypes resourceType = Enums.ResourceTypes.Demir;
 
     public Resource()
     {

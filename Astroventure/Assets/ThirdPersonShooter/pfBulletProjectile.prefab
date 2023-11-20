@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6863857337172796864}
   - component: {fileID: 6863857337172796871}
   - component: {fileID: 810733913983134852}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pfBulletProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,10 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1021318b5c8b240bed91ed02613d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxHitGreen: {fileID: 613433886817584985, guid: 6e845b0e80fad2d4c93ff505a0750129,
-    type: 3}
-  vfxHitRed: {fileID: 613433886817584985, guid: 9f5fbcfb6299c2b4c912f3ff44f14463,
-    type: 3}
+  vfxHitGreen: {fileID: 613433886817584985, guid: 6e845b0e80fad2d4c93ff505a0750129, type: 3}
+  vfxHitRed: {fileID: 613433886817584985, guid: 9f5fbcfb6299c2b4c912f3ff44f14463, type: 3}
 --- !u!1 &6863857337905034704
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +89,7 @@ GameObject:
   - component: {fileID: 6863857337905034732}
   - component: {fileID: 6863857337905034707}
   - component: {fileID: 6050120816508447850}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

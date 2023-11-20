@@ -18,43 +18,25 @@ public class PortableMiner : MonoBehaviour
 
     bool _isWorking;
 
-    void OnEnable()
+    private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(Mine());
-
-    }
-    void OnMouseDown()
-    {
-       UnloadResource();
-    }
-
-    void UnloadResource()
-    {
-        
-        GameEvents.Instance.OnResourceChanged?.Invoke(resourceType,currentResource);
-       
-        currentResource=0;
-        capacityText.text = currentResource +"/"+capacity;
-        if(!_isWorking)
+        if (other.gameObject.tag == "Mine")
         {
-            StartCoroutine(Mine());
+
+
+            if (other.GetComponent<MineSource>().resourceType != resourceType)
+            {
+                resourceType = other.GetComponent<MineSource>().resourceType;
+            }
+
+            GameManager.Instance.AddMiner(resourceType);
+
+            TaskController.Instance.TaskControl1(resourceType);
+            
+
 
         }
     }
 
-    IEnumerator Mine()
-    {
-        while(currentResource < capacity)
-        {
-                        
-            _isWorking=true;
-            yield return new WaitForSeconds(1);
-            currentResource++;
-            capacityText.text = currentResource +"/"+capacity;
 
-
-        }
-        _isWorking=false;
-
-    }
 }

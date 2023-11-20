@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - CinemachineTarget
+  - Mine
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Collactable
   - Character
   - BuildArea
-  - 
-  - 
-  - 
+  - Bullet
+  - Enemy
+  - TargetFinder
   - 
   - 
   - 
