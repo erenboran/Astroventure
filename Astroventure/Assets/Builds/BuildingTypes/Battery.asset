@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7747bdf78fa6141a2f81d16ff91e5f, type: 3}
   m_Name: Battery
   m_EditorClassIdentifier: 
-  nameString: Battery
+  nameString: Batarya
   buildResources:
     resource1: 10
     resource2: 10
   prefab: {fileID: 1406036821435700011, guid: a54fb2131c85bad498f051c9ea8b803a, type: 3}
   visual: {fileID: 5335981307944893658, guid: 6adee64fb14c54741a9658ed4eca121f, type: 3}
   buildMenuImage: {fileID: 21300000, guid: 7cca67cc85a986b4ab39028c156b50ef, type: 3}
-  description: 
+  description: "Enerji depolama kapasitesini art\u0131r\u0131r +125 Depolama Elektrik
+    t\xFCketimi 1/s"
   width: 2
   height: 1
   isStackable: 0
   isNeedControl: 0
   isUnderground: 0
+  isMiner: 0
   buildVariations: []

@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94894ab446203774199d9c7a06fe3fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 9184530570007779173}
+  meshRenderers:
+  - {fileID: 9184530570007779173}
 --- !u!1 &4541913049362566170
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +249,12 @@ GameObject:
   - component: {fileID: 1406036821435700011}
   - component: {fileID: 2771764012919639078}
   - component: {fileID: 8099976428427683539}
+  - component: {fileID: 2916192286916331278}
+  - component: {fileID: 3333461366830723140}
+  - component: {fileID: 1273968918437597108}
+  - component: {fileID: 2087430646186993266}
+  - component: {fileID: 4066900612698767431}
+  - component: {fileID: -1692421313473330890}
   m_Layer: 0
   m_Name: Sera
   m_TagString: Untagged
@@ -331,6 +338,89 @@ MonoBehaviour:
   placedObjectTypeSO: {fileID: 0}
   build: {fileID: 0}
   state: 0
+--- !u!114 &2916192286916331278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798744348156659787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ff2eea7597db140bf3089d211224b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3333461366830723140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798744348156659787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98989296, y: 0.59248626, z: 0.77912134}
+  m_Center: {x: 1.0222067, y: 0.43073535, z: 0.5039536}
+--- !u!54 &1273968918437597108
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798744348156659787}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!208 &2087430646186993266
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798744348156659787}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.4949465, y: 0.29624316, z: 0.38956064}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.022207, y: 0.4307353, z: 0.5039536}
+  m_TimeToStationary: 0.5
+--- !u!114 &4066900612698767431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798744348156659787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15b76f93cfc9224ea23231d282eb5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &-1692421313473330890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798744348156659787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27be1c84dd592345a1de54c1a5e8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usage: 10
 --- !u!1001 &7545662727250054113
 PrefabInstance:
   m_ObjectHideFlags: 0

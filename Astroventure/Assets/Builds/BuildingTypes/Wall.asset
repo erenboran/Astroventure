@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7747bdf78fa6141a2f81d16ff91e5f, type: 3}
   m_Name: Wall
   m_EditorClassIdentifier: 
-  nameString: Wall
+  nameString: Duvar
   buildResources:
     resource1: 5
     resource2: 5
   prefab: {fileID: 1406036821435700011, guid: 2ab804eb7ac5ed94f904af01d6fab1b7, type: 3}
   visual: {fileID: 5270509430191917259, guid: 1994654cb63f5ba409deabce91f51945, type: 3}
   buildMenuImage: {fileID: 21300000, guid: a48fe76309a26a0458957f92644ee4c1, type: 3}
+  description: "D\xFC\u015Fmanlar\u0131n\u0131n ge\xE7mesini engellerr"
   width: 1
   height: 1
   isStackable: 1
   isNeedControl: 1
   isUnderground: 0
+  isMiner: 0
   buildVariations:
   - {fileID: 0}
   - {fileID: 8798744348156659787, guid: b1fcb098d9b6ace418f81cacb4f9d476, type: 3}

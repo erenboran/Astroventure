@@ -19,10 +19,12 @@ MonoBehaviour:
   prefab: {fileID: 1406036821435700011, guid: b4cae711fd6cfd147873c470686ee72c, type: 3}
   visual: {fileID: 6352844753798129330, guid: 9fabbcdfdf70c7a44a9d5ac2b1167d2a, type: 3}
   buildMenuImage: {fileID: 21300000, guid: 174b9f7c8e47cda4d981ea67caa90818, type: 3}
-  description: "Oksijen \xDCretir /n +20 O2"
+  description: "Koloni i\xE7in yemek ihtiyac\u0131n\u0131 kar\u015F\u0131lar r Enerji
+    t\xFCketimi 1/s"
   width: 1
   height: 1
   isStackable: 0
   isNeedControl: 0
   isUnderground: 0
+  isMiner: 0
   buildVariations: []

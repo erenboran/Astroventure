@@ -2,6 +2,8 @@
 using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
+using TMPro;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public Transform collectPoint;
 
     [SerializeField] Rig aimRig;
+
+    [SerializeField] AudioSource audioSource;
 
 
     public float moveSpeed = 2.0f;
@@ -87,6 +91,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform vfxHitGreen;
     [SerializeField] private Transform vfxHitRed;
 
+    [SerializeField]
+    TMP_Text objectNameText;
+
 
     private void Awake()
     {
@@ -146,9 +153,18 @@ public class PlayerController : MonoBehaviour
 
             if (playerInput.shoot)
             {
+                if (GameManager.Instance.currentBattery >= 2f)
+                {
+                    Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
 
-                Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+                    Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+
+                    GameManager.Instance.currentBattery -= 2f;
+
+                    audioSource.Play();
+
+                }
+
 
                 playerInput.shoot = false;
             }
@@ -172,23 +188,51 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void ShowObjectName()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 999f))
+        {
+            if (hit.transform.TryGetComponent(out IInteractable interactable))
+            {
+                objectNameText.text = interactable.ShowName();
+            }
+            else
+            {
+                objectNameText.text = "";
+            }
+        }
+    }
+
 
     private void Update()
     {
 
 
         JumpAndGravity();
+
         GroundedCheck();
+
         if (!playerInput.buildMode)
         {
             ShooterController();
-
-
         }
+
+
         Move();
 
 
     }
+
+    void FixedUpdate()
+    {
+        ShowObjectName();
+    }
+
+
 
 
     private void LateUpdate()

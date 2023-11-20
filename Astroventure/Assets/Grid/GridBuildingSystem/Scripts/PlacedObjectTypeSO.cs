@@ -39,6 +39,8 @@ public class PlacedObjectTypeSO : ScriptableObject
     public bool isNeedControl;
     public bool isUnderground;
 
+    public bool isMiner;
+
     public List<GameObject> buildVariations;
 
 

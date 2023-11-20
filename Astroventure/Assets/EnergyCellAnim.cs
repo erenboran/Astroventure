@@ -18,9 +18,16 @@ public class EnergyCellAnim : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-
+        GameManager.Instance.oxygenGeneratorCount++;
+        TaskController.Instance.TaskControl2();
     }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.oxygenGeneratorCount--;
+    }
+
+
 }

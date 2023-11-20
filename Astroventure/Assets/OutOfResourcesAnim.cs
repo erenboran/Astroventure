@@ -19,16 +19,18 @@ public class OutOfResourcesAnim : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.Instance.OnOutOfResources += StartAnim;
+        GameEvents.Instance.OnWarningMessage += StartAnim;
     }
 
     private void OnDisable()
     {
-        GameEvents.Instance.OnOutOfResources -= StartAnim;
+        GameEvents.Instance.OnWarningMessage -= StartAnim;
     }
 
-    void StartAnim()
+    void StartAnim(string message)
     {
+        warningText.text = message;
+
         if (isActive)
         {
             return;
@@ -38,7 +40,9 @@ public class OutOfResourcesAnim : MonoBehaviour
 
         warningText.enabled = true;
 
-        transform.DOMoveY(startPosition.y + 20, 0.5f).SetLoops(1, LoopType.Yoyo).OnComplete(() =>
+        float messageTimer = 0.5f+message.Length*0.05f;
+
+        transform.DOMoveY(startPosition.y + 50,messageTimer).SetLoops(1, LoopType.Yoyo).OnComplete(() =>
         {
             transform.position = startPosition;
             warningText.enabled = false;

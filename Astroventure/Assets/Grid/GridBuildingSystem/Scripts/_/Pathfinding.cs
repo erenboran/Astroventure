@@ -233,8 +233,6 @@ public class Pathfinding : MonoBehaviour
 
         else if (!objectTypeSO.isStackable)
         {
-            Debug.Log("Is Working"+isWorking + " isStackable+ " + objectTypeSO.isStackable);
-
             GameEvents.Instance.OnObjectPlaced?.Invoke(gridObject, placedObjectType);
             GameEvents.Instance.OnSelectedChanged?.Invoke();
 
@@ -293,7 +291,7 @@ public class Pathfinding : MonoBehaviour
             foreach (GridObject neighbourNode in GetNeighbourList(currentNode))
             {
                 if (closedList.Contains(neighbourNode)) continue;
-                
+
                 neighbourNode.cameFromNode = currentNode;
 
                 int turnCost = CalculateDirectionCost(currentNode, neighbourNode);

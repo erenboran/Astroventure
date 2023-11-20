@@ -36,7 +36,7 @@ public class BuildElement : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
         else
         {
-            GameEvents.Instance.OnOutOfResources?.Invoke();
+            GameEvents.Instance.OnWarningMessage?.Invoke("Yeterli Kaynak Yok");
 
         }
     }

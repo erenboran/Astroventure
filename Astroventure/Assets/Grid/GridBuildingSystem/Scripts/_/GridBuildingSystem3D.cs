@@ -58,14 +58,29 @@ public class GridBuildingSystem3D : MonoBehaviour
 
         if (!GameEvents.Instance.OnResourceControl.Invoke(placedObjectTypeSO.buildResources))
         {
-          
 
-            GameEvents.Instance.OnOutOfResources?.Invoke();
+
+            GameEvents.Instance.OnWarningMessage?.Invoke("Yeterli Kaynak Yok!");
 
             placedObjectTypeSO = null;
-            
+
             RefreshSelectedObjectType();
             return;
+        }
+
+        if (placedObjectTypeSO.isMiner)
+        {
+            if (!GameEvents.Instance.OnMinerBuildControl.Invoke())
+            {
+
+
+                placedObjectTypeSO = null;
+                RefreshSelectedObjectType();
+                GameEvents.Instance.OnWarningMessage?.Invoke("Taşınabilir Maden Sondajı Bir Maden Kaynağının Üzerine Kurulmalı!!");
+                return;
+            }
+
+
         }
 
         if ((gridObject.CanBuild() == 0) || (gridObject.CanBuild() == 1 && (placedObjectTypeSO.isUnderground)) || (gridObject.CanBuild() == 2 && (!placedObjectTypeSO.isUnderground)))
@@ -154,7 +169,7 @@ public class GridBuildingSystem3D : MonoBehaviour
         else
         {
             // Cannot build here
-          //  Utils.CreateWorldTextPopup("Cannot Build Here!", mousePosition);
+            //  Utils.CreateWorldTextPopup("Cannot Build Here!", mousePosition);
         }
 
     }
@@ -194,44 +209,14 @@ public class GridBuildingSystem3D : MonoBehaviour
 
         if (!inventory.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                placedObjectTypeSO = placedObjectTypeSOList[0];
-                GameEvents.Instance.OnBuildMenuClosed?.Invoke();
-                RefreshSelectedObjectType();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                placedObjectTypeSO = placedObjectTypeSOList[1]; GameEvents.Instance.OnBuildMenuClosed?.Invoke();
-                RefreshSelectedObjectType();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                placedObjectTypeSO = placedObjectTypeSOList[2]; GameEvents.Instance.OnBuildMenuClosed?.Invoke();
-                RefreshSelectedObjectType();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                placedObjectTypeSO = placedObjectTypeSOList[3]; GameEvents.Instance.OnBuildMenuClosed?.Invoke();
-                RefreshSelectedObjectType();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                placedObjectTypeSO = placedObjectTypeSOList[4]; GameEvents.Instance.OnBuildMenuClosed?.Invoke();
-                RefreshSelectedObjectType();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-                placedObjectTypeSO = placedObjectTypeSOList[5]; GameEvents.Instance.OnBuildMenuClosed?.Invoke();
-                RefreshSelectedObjectType();
-            }
+           
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 placedObjectTypeSO = null; GameEvents.Instance.OnBuildMenuClosed?.Invoke();
                 RefreshSelectedObjectType();
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha0)) { DeselectObjectType(); }
+           
         }
 
 

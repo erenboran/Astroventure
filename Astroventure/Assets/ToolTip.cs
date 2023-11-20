@@ -7,13 +7,13 @@ using TMPro;
 public class ToolTip : MonoBehaviour
 {
     [SerializeField]
-    TMP_Text itemName, itemDescription, itemCost;
+  public  TMP_Text itemName, itemDescription, itemCost;
 
     Color resource1costColor, resource2costColor;
 
     public void Init(PlacedObjectTypeSO placedObjectTypeSO)
     {
-        itemName.text = placedObjectTypeSO.name;
+        itemName.text = placedObjectTypeSO.nameString;
 
         itemDescription.text = placedObjectTypeSO.description;
 

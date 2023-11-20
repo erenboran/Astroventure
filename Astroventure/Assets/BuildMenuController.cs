@@ -11,7 +11,7 @@ public class BuildMenuController : MonoBehaviour
     GameObject buildTypeMenu, buildMenu;
 
     [SerializeField]
-    List<BuildType> buildTypes;
+    List<BuildType> buildTypes, totorialBuildTypes, allBuildTypes;
 
     [SerializeField] List<Image> buttonImages;
     [SerializeField] BuildElement buildElementPrefab;
@@ -23,16 +23,62 @@ public class BuildMenuController : MonoBehaviour
     [SerializeField] ToolTip toolTip;
     bool isToolTipActive = false;
 
+    [SerializeField]
+    bool isDebug;
+
     private void OnEnable()
     {
         GameEvents.Instance.OnBuildMenuOpened += OpenBuildTypeMenu;
         GameEvents.Instance.OnToolTipActivated += ToolTip;
+        GameEvents.Instance.OnAllBuldingCanBuild += OpenAllBuildTypes;
+        GameEvents.Instance.OnToolTipActivatedForTypes += ToolTipForType;
     }
 
     private void OnDisable()
     {
         GameEvents.Instance.OnToolTipActivated -= ToolTip;
         GameEvents.Instance.OnBuildMenuOpened -= OpenBuildTypeMenu;
+        GameEvents.Instance.OnAllBuldingCanBuild -= OpenAllBuildTypes;
+        GameEvents.Instance.OnToolTipActivatedForTypes -= ToolTipForType;
+    }
+
+    private void Start()
+    {
+        allBuildTypes = buildTypes;
+
+        if (!isDebug)
+        {
+
+
+            buildTypes = totorialBuildTypes;
+
+        }
+
+
+    }
+
+    void OpenAllBuildTypes()
+    {
+        buildTypes = allBuildTypes;
+        SelectBuildTypeMenu(2);
+    }
+
+    void ToolTipForType(string typeName, bool isOn)
+    {
+        if (isOn)
+        {
+            toolTip.gameObject.SetActive(true);
+            toolTip.itemName.text = typeName;
+            toolTip.itemDescription.text = "Tüm binaları görmek için tıkla";
+            toolTip.itemCost.text = "";
+            isToolTipActive = true;
+        }
+        else
+        {
+            toolTip.gameObject.SetActive(false);
+            isToolTipActive = false;
+        }
+
     }
 
 
@@ -114,7 +160,7 @@ public class BuildMenuController : MonoBehaviour
 
 
         buttonImages[index].color = Color.green;
-        
+
 
         for (int i = 0; i < buildTypes[index].builds.Count; i++)
         {

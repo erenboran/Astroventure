@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7747bdf78fa6141a2f81d16ff91e5f, type: 3}
   m_Name: Electric Coil
   m_EditorClassIdentifier: 
-  nameString: Electric Coil
+  nameString: "Oksijen Konsantrat\xF6r\xFC"
   buildResources:
     resource1: 15
     resource2: 20
   prefab: {fileID: 1406036821435700011, guid: 08d6dd6bc9778bf4a95b17341e297d14, type: 3}
   visual: {fileID: 7819951470351297087, guid: de51d8ba41c10b344b893873f5ec6dc9, type: 3}
   buildMenuImage: {fileID: 21300000, guid: 7259139f1be7deb478d7bb0b83f939d9, type: 3}
-  description: 
+  description: "Otmatik olarak oksijen \xFCretiyor saniyede  Enerji kullan\u0131m\u0131
+    1/s"
   width: 2
   height: 1
   isStackable: 0
   isNeedControl: 0
   isUnderground: 0
+  isMiner: 0
   buildVariations: []

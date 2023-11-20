@@ -17,12 +17,14 @@ MonoBehaviour:
     resource1: 10
     resource2: 10
   prefab: {fileID: 1406036821435700011, guid: f23913dda1204754c8fa0f5ec7f1d3b3, type: 3}
-  visual: {fileID: 8279544048340504284, guid: 9940fa31fd527fd4293edd480c75df67, type: 3}
-  buildMenuImage: {fileID: 21300000, guid: 149a967e2dc627345a7991e4ff7b4455, type: 3}
-  description: "Tesla Kulesi ile d\xFC\u015Fmanlar\u0131n\u0131 elektrikle!"
+  visual: {fileID: 3816757970459639269, guid: 3e0052a41aa31704e8fde7bed3fd5496, type: 3}
+  buildMenuImage: {fileID: 21300000, guid: 898f0e8c119415e4b8c7162138d3fda3, type: 3}
+  description: "Tesla Kulesi ile d\xFC\u015Fmanlar\u0131n\u0131 elektrikle! r Enerji
+    t\xFCketimi 1/s"
   width: 2
   height: 1
   isStackable: 0
   isNeedControl: 0
   isUnderground: 0
+  isMiner: 0
   buildVariations: []

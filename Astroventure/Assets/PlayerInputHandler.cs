@@ -31,6 +31,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        if(buildMode)
+        {
+            return;
+        }
+
         JumpInput(value.isPressed);
     }
 
